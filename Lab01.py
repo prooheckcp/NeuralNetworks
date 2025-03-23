@@ -11,3 +11,13 @@ plt.style.use('./deeplearning.mplstyle')
 import logging
 logging.getLogger("tensorflow").setLevel(logging.ERROR)
 tf.autograph.set_verbosity(0)
+
+# Our Training Data
+X_train = np.array([0., 1, 2, 3, 4, 5], dtype=np.float32).reshape(-1,1)  # 2-D Matrix
+Y_train = np.array([0,  0, 0, 1, 1, 1], dtype=np.float32).reshape(-1,1)  # 2-D Matrix
+
+model = Sequential([
+    tf.keras.layers.Dense(1, input_shape=(1,), activation='sigmoid', name='L1')
+])
+
+model.summary()
