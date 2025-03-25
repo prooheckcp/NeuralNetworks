@@ -17,6 +17,8 @@ X_train = np.array([0., 1, 2, 3, 4, 5], dtype=np.float32).reshape(-1,1)  # 2-D M
 Y_train = np.array([0,  0, 0, 1, 1, 1], dtype=np.float32).reshape(-1,1)  # 2-D Matrix
 
 model = Sequential([
+    # tf.keras.layers.
+
     tf.keras.layers.Dense(1, input_shape=(1,), activation='sigmoid', name='L1')
 ])
 
