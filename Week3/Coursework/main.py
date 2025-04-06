@@ -148,6 +148,9 @@ X, y, centers, classes, std = gen_blobs()
 X_train, X_, y_train, y_ = train_test_split(X, y, test_size=0.50, random_state=1)
 X_cv, X_test, y_cv, y_test = train_test_split(X_, y_, test_size=0.20, random_state=1)
 
+"""
+Complex model neural networks
+
 # UNQ_C3
 # GRADED CELL: model
 import logging
@@ -169,4 +172,48 @@ model.compile(
     loss=SparseCategoricalCrossentropy(from_logits=True),
     optimizer=Adam(learning_rate=0.01),
     ### END CODE HERE ###
+)
+"""
+
+"""
+Simple model neural networks
+
+# UNQ_C4
+# GRADED CELL: model_s
+
+tf.random.set_seed(1234)
+model_s = Sequential(
+    [
+        ### START CODE HERE ###
+        Dense(6, activation="relu"),
+        Dense(6),
+        ### END CODE HERE ###
+    ], name="Simple"
+)
+model_s.compile(
+    ### START CODE HERE ###
+    loss=SparseCategoricalCrossentropy(from_logits=True),
+    optimizer=Adam(learning_rate=0.01),
+    ### START CODE HERE ###
+)
+"""
+
+# UNQ_C5
+# GRADED CELL: model_r
+
+tf.random.set_seed(1234)
+model_r = Sequential(
+    [
+        ### START CODE HERE ###
+        Dense(120, activation="relu", kernel_regularizer=tf.keras.regularizers.l2(0.1)),
+        Dense(40, activation="relu", kernel_regularizer=tf.keras.regularizers.l2(0.1)),
+        Dense(6)
+        ### START CODE HERE ###
+    ], name=None
+)
+model_r.compile(
+    ### START CODE HERE ###
+    loss=SparseCategoricalCrossentropy(from_logits=True),
+    optimizer=Adam(learning_rate=0.01),
+    ### START CODE HERE ###
 )
